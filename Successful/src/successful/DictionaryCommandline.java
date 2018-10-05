@@ -16,4 +16,8 @@ public class DictionaryCommandline {
 		for( int i = 0; i < a.word.size(); i++)
 		System.out.println("| " + a.word.get(i).GetWord_target() + " |" + a.word.get(i).GetWord_explain());
 	}
+     void dictionaryBasic(){
+        DictionaryManagement x = new DictionaryManagement();
+        x.insertFromCommandline();
+        showAllWord();
 }
