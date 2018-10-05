@@ -16,6 +16,10 @@ public class Successful {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        DictionaryManagement x = new DictionaryManagement();
+        x.insertFromCommandline();
+        DictionaryCommandline y = new DictionaryCommandline();
+        y.showAllWord();
     }
     
 }
