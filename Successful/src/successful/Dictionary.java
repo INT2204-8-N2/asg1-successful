@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package successful;
-
+import java.util.*;
 /**
  *
  * @author dell
  */
 public class Dictionary {
-    
+    public static ArrayList<Word> word = new ArrayList<Word>(100);
 }
