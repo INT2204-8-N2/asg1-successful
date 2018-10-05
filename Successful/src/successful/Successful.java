@@ -9,7 +9,7 @@ package successful;
  *
  * @author dell
  */
-public class Successful {kjljlhk
+public class Successful {
 
     /**
      * @param args the command line arguments
