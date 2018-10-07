@@ -5,8 +5,10 @@
  */
 package successful;
 import java.util.Scanner;
-import java.io.*;
-import java.util.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 /**
  *
  * @author dell
@@ -28,26 +30,19 @@ public class DictionaryManagement {
 		}
 	}
         void insertFromFile(){
-            try{
-                BufferedReader bu = new BufferedReader(new FileReader("dictionaries.txt"));
-                bu.readLine();
-                String line = "";
-                for(int i = 0; (line = bu.readLine()) != null; i++ )
-                {
-                    Word w;
-                    w = new Word();
-                    String a[];
-                    a = line.split("\t");
-                    w.word_target = a[0];
-                    w.word_explain = a[1];
-                    x.word.add(w);
-                }
-                bu.close();
-                
-            }
-            catch (IOException e) {
+            Dictionary x = new Dictionary();
+        String fileName = "dictionaries";
+        try (Stream<String> stream = Files.lines(Paths.get(fileName), StandardCharsets.UTF_8)) {
+            stream.forEach(line -> {
+                String[] words = line.split("\t");
+                String anh = words[0];
+                String viet = words[1];
+                Word w = new Word(anh, viet);
+                x.word.add(w);
+            });
+        } catch (Exception e) {
             e.printStackTrace();
-        }       
+        }
         }
         void dictionaryLookup(){
         Dictionary x = new Dictionary();
