@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package successful;
+import java.util.Scanner;
+import java.io.*;
 import java.util.*;
 /**
  *
@@ -25,7 +27,7 @@ public class DictionaryManagement {
 			x.word.add(w);
 		}
 	}
-	void insertFromFile(){
+        void insertFromFile(){
             try{
                 BufferedReader bu = new BufferedReader(new FileReader("dictionaries.txt"));
                 bu.readLine();
@@ -57,4 +59,15 @@ public class DictionaryManagement {
                 System.out.println(x.word.get(i).GetWord_explain());
         }
     }
+        void dictionarySearcher(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Nhập từ :");
+        String s = input.nextLine();
+        for(int i=0;i<Dictionary.word.size();i++){
+            if(Dictionary.word.get(i).GetWord_target().startsWith(s))
+                System.out.println(Dictionary.word.get(i).GetWord_target());
+        }
+    }
 }
+
+    
