@@ -27,7 +27,7 @@ public class DictionaryManagement {
 	}
 	void insertFromFile(){
             try{
-                BufferedReader bu = new BufferedReader(new FileReader("dictionary.txt"));
+                BufferedReader bu = new BufferedReader(new FileReader("dictionaries.txt"));
                 bu.readLine();
                 String line = "";
                 for(int i = 0; (line = bu.readLine()) != null; i++ )
