@@ -10,5 +10,5 @@ import java.util.*;
  * @author dell
  */
 public class Dictionary {
-    public static ArrayList<Word> word = new ArrayList<Word>(100);
+    public static ArrayList<Word> word = new ArrayList<Word>(10000);
 }
