@@ -20,4 +20,11 @@ public class DictionaryCommandline {
         DictionaryManagement x = new DictionaryManagement();
         x.insertFromCommandline();
         showAllWord();
-}
+	}
+	void dictionaryAdvanced(){
+        DictionaryManagement x = new DictionaryManagement();
+        x.insertFromFile();
+        showAllWord();
+        x.dictionaryLookup();
+    }}
+	
