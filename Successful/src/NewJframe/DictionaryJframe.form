@@ -87,7 +87,9 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="dTextField">
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="dTextFieldCaretUpdate"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dTextFieldMouseClicked"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dTextFieldKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="dButton1">

@@ -21,9 +21,8 @@ import Successful.DictionaryManagement;
  */
 public class DictionaryJframe extends javax.swing.JFrame {
     
-    private DefaultListModel model;
+    private DefaultListModel model = new DefaultListModel();
     Dictionary dic = new Dictionary();
-    Word x = new Word();
    
     /**
      * Creates new form DictionaryJframe
@@ -55,7 +54,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         }
         }
    private void initData(){
-       insertFromFile();
+         insertFromFile();
          model = new DefaultListModel();
          for(int i=0;i<dic.word.size();i++){
          model.addElement(dic.word.get(i).word_target);
@@ -80,9 +79,19 @@ public class DictionaryJframe extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 120));
 
+        dTextField.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                dTextFieldCaretUpdate(evt);
+            }
+        });
         dTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dTextFieldMouseClicked(evt);
+            }
+        });
+        dTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dTextFieldKeyPressed(evt);
             }
         });
 
@@ -171,25 +180,45 @@ public class DictionaryJframe extends javax.swing.JFrame {
          String value = dTextField.getText();
         DictionaryManagement dm = new DictionaryManagement();
         
-        dTextArea.setText(dm.dictionaryLookup(value, dic));
+        dTextArea.setText(dm.dictionaryLookup(value));
         
         
     }//GEN-LAST:event_dButton1ActionPerformed
 
     private void dTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dTextFieldMouseClicked
         // TODO add your handling code here:
-        dTextField.setText("");
+       // dTextField.setText("");
     }//GEN-LAST:event_dTextFieldMouseClicked
 
     private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
         // TODO add your handling code here:
 
-        String value = dList.getSelectedValue().toString();
+    
         DictionaryManagement dm = new DictionaryManagement();
         
-        dTextArea.setText(dm.dictionaryLookup(value, dic));
+        dTextArea.setText(dm.dictionaryLookup(dList.getSelectedValue()));
     }//GEN-LAST:event_dListValueChanged
+
+    private void dTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextFieldKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dTextFieldKeyPressed
+
+    private void dTextFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dTextFieldCaretUpdate
+       String s = dTextField.getText();
+       model = new DefaultListModel();
+        if(!s.isEmpty())
+        {
+         model.clear();
+         for(int i=0;i<dic.word.size();i++){
+            if(dic.word.get(i).GetWord_target().startsWith(s))
+             model.addElement(dic.word.get(i).GetWord_target());
+         }
+        dList.setModel(model);
+        
+    }   
     
+    }//GEN-LAST:event_dTextFieldCaretUpdate
+       
     /**
      * @param args the command line arguments
      */
