@@ -9,10 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
+
 /**
  *
  * @author dell
@@ -34,18 +31,7 @@ public class DictionaryManagement {
 		}
 	}
     void insertFromFile(){
-//        String fileName = "dictionaries";
-//        try (Stream<String> stream = Files.lines(Paths.get(fileName), StandardCharsets.UTF_8)) {
-//            stream.forEach(line -> {
-//                String[] words = line.split("\\s",2);
-//                String anh = words[0];
-//                String viet = words[1];
-//                Word w = new Word(anh, viet);
-//                x.word.add(w);
-//            });
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
         File file = new File("dictionaries.txt");
        
         try {
@@ -76,7 +62,7 @@ public class DictionaryManagement {
     }
     void dictionarySearcher(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhập từ :");
+        System.out.println("Nhap tu: ");
         String s = input.nextLine();
         for(int i=0;i<x.word.size();i++){
             if(x.word.get(i).GetWord_target().startsWith(s))

@@ -5,17 +5,50 @@
  */
 package NewJframe;
 
+ 
+import Successful.Word;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+ 
 /**
  *
  * @author dell
  */
 public class DictionaryJframe extends javax.swing.JFrame {
-
+    
+    private DefaultListModel model;
+   
     /**
      * Creates new form DictionaryJframe
      */
     public DictionaryJframe() {
         initComponents();
+        initData();
+    }
+   private void initData(){
+         model = new DefaultListModel();
+        File file = new File("dictionaries.txt");
+       
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            br.readLine();
+            int i = 0;
+            String line = "";
+            for (i = 0; (line = br.readLine()) != null; i++) {
+               
+                String[] a = line.split("\\s", 2);
+                model.addElement(a[0]);
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        dList.setModel(model);
     }
 
     /**
@@ -35,10 +68,15 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dList = new javax.swing.JList<>();
         dLabel = new javax.swing.JLabel();
         dButton2 = new javax.swing.JButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 120));
+
+        dTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dTextFieldMouseClicked(evt);
+            }
+        });
 
         dButton1.setText("Search");
         dButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +90,12 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dTextArea.setRows(5);
         jScrollPane1.setViewportView(dTextArea);
 
+        dList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        dList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                dListValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(dList);
 
         dLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,22 +111,19 @@ public class DictionaryJframe extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(dLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
-                                .addComponent(dButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(dButton2)))
                         .addGap(43, 43, 43))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(33, 33, 33)
                         .addComponent(dButton1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -92,21 +133,23 @@ public class DictionaryJframe extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dButton1))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(57, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dButton1))
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dButton1, dTextField});
@@ -116,11 +159,29 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
     private void dButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton1ActionPerformed
         // TODO add your handling code here:
+
         String a;
         a = dTextField.getText();
         dTextArea.setText(a);
+        
+        
     }//GEN-LAST:event_dButton1ActionPerformed
 
+    private void dTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dTextFieldMouseClicked
+        // TODO add your handling code here:
+        dTextField.setText("");
+    }//GEN-LAST:event_dTextFieldMouseClicked
+
+    private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
+        // TODO add your handling code here:
+
+        String value = dList.getSelectedValue().toString();
+        if(value != null ){
+            JOptionPane.showMessageDialog(null, value);
+        }
+        
+    }//GEN-LAST:event_dListValueChanged
+    
     /**
      * @param args the command line arguments
      */
@@ -163,7 +224,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private javax.swing.JList<String> dList;
     private javax.swing.JTextArea dTextArea;
     private javax.swing.JTextField dTextField;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
