@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author dell
  */
 public class DictionaryManagement {
-    Dictionary x = new Dictionary();
+    Dictionary dic = new Dictionary();
     void insertFromCommandline() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Nhap so luong tu: ");
@@ -27,7 +27,7 @@ public class DictionaryManagement {
 			String Eng = input.nextLine();
 			String Vie = input.nextLine();
 			Word w = new Word(Eng,Vie);
-			x.word.add(w);
+			dic.word.add(w);
 		}
 	}
     void insertFromFile(){
@@ -44,29 +44,30 @@ public class DictionaryManagement {
                 String[] a = line.split("\\s", 2);
                 ex.word_explain = a[1];
                 ex.word_target = a[0];
-                x.word.add(ex);
+                dic.word.add(ex);
             }
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         }
-    void dictionaryLookup(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Nhap tu can tra: ");
-        String find_word = input.nextLine();
-        for(int i=0; i<x.word.size(); i++){
-            if(x.word.get(i).GetWord_target().equals(find_word))
-                System.out.println(x.word.get(i).GetWord_explain());
+    public String dictionaryLookup(String find_word){
+
+        String result = "Không có từ để hiển thị !!!";
+        for(int i=0; i<dic.word.size(); i++){
+            if(dic.word.get(i).GetWord_target().equals(find_word))
+                result = dic.word.get(i).GetWord_explain();
         }
+        return result;
     }
-    void dictionarySearcher(){
+    public void dictionarySearcher(){
+      
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap tu: ");
+        System.out.println("Nhập từ: ");
         String s = input.nextLine();
-        for(int i=0;i<x.word.size();i++){
-            if(x.word.get(i).GetWord_target().startsWith(s))
-                System.out.println(x.word.get(i).GetWord_target());
+        for(int i=0;i<dic.word.size();i++){
+            if(dic.word.get(i).GetWord_target().startsWith(s))
+                System.out.println(dic.word.get(i).GetWord_target()+"~~"+dic.word.get(i).GetWord_explain());
         }
     }
 }
