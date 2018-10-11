@@ -75,9 +75,15 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dList = new javax.swing.JList<>();
         dLabel = new javax.swing.JLabel();
         dButton2 = new javax.swing.JButton();
+        dButton3 = new javax.swing.JButton();
+        dButton4 = new javax.swing.JButton();
+        dButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 120));
+        setBackground(new java.awt.Color(51, 255, 51));
+        setLocation(new java.awt.Point(400, 120));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dTextField.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -94,6 +100,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
                 dTextFieldKeyPressed(evt);
             }
         });
+        getContentPane().add(dTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 57, 154, 43));
 
         dButton1.setText("Search");
         dButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,11 +108,14 @@ public class DictionaryJframe extends javax.swing.JFrame {
                 dButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(dButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 57, -1, 43));
 
         dTextArea.setEditable(false);
         dTextArea.setColumns(20);
         dTextArea.setRows(5);
         jScrollPane1.setViewportView(dTextArea);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 118, 350, 352));
 
         dList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         dList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -115,61 +125,31 @@ public class DictionaryJframe extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(dList);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 118, 154, 352));
+
+        dLabel.setBackground(new java.awt.Color(255, 255, 255));
+        dLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        dLabel.setForeground(new java.awt.Color(204, 0, 0));
         dLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dLabel.setText("English - Vietnamese");
+        dLabel.setText("ENGLISH - VIETNAMESE");
+        getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 28, 211, 56));
 
         dButton2.setText("Sound");
+        getContentPane().add(dButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 61, -1, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(dLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(dButton2)))
-                        .addGap(43, 43, 43))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(dButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        dButton3.setText("Insert");
+        dButton3.setActionCommand("add");
+        getContentPane().add(dButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 203, 70, 35));
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dTextField, jScrollPane2});
+        dButton4.setText("Edit");
+        getContentPane().add(dButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 70, 35));
 
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(57, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dButton1))
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
-                .addGap(31, 31, 31))
-        );
+        dButton5.setText("Delete");
+        getContentPane().add(dButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 70, 35));
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dButton1, dTextField});
+        jLabel1.setBackground(new java.awt.Color(153, 255, 153));
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,8 +172,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
     private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
         // TODO add your handling code here:
-
-    
         DictionaryManagement dm = new DictionaryManagement();
         
         dTextArea.setText(dm.dictionaryLookup(dList.getSelectedValue()));
@@ -257,10 +235,14 @@ public class DictionaryJframe extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton dButton1;
     private javax.swing.JButton dButton2;
+    private javax.swing.JButton dButton3;
+    private javax.swing.JButton dButton4;
+    private javax.swing.JButton dButton5;
     private javax.swing.JLabel dLabel;
     private javax.swing.JList<String> dList;
     private javax.swing.JTextArea dTextArea;
     private javax.swing.JTextField dTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
