@@ -24,9 +24,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private DefaultListModel model = new DefaultListModel();
     Dictionary dic = new Dictionary();
    
-    /**
-     * Creates new form DictionaryJframe
-     */
+    
     public DictionaryJframe() {
         initComponents();
         initData();
@@ -81,6 +79,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dictionary");
         setBackground(new java.awt.Color(51, 255, 51));
         setLocation(new java.awt.Point(400, 120));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,12 +138,27 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
         dButton3.setText("Insert");
         dButton3.setActionCommand("add");
+        dButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(dButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 203, 70, 35));
 
         dButton4.setText("Edit");
+        dButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(dButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 70, 35));
 
         dButton5.setText("Delete");
+        dButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(dButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 70, 35));
 
         jLabel1.setBackground(new java.awt.Color(153, 255, 153));
@@ -173,7 +187,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
         // TODO add your handling code here:
         DictionaryManagement dm = new DictionaryManagement();
-        
         dTextArea.setText(dm.dictionaryLookup(dList.getSelectedValue()));
     }//GEN-LAST:event_dListValueChanged
 
@@ -196,6 +209,25 @@ public class DictionaryJframe extends javax.swing.JFrame {
     }   
     
     }//GEN-LAST:event_dTextFieldCaretUpdate
+
+    private void dButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton3ActionPerformed
+        // TODO add your handling code here:
+        Insert insert = new Insert();
+        insert.setVisible(true);
+    }//GEN-LAST:event_dButton3ActionPerformed
+
+    private void dButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton4ActionPerformed
+        // TODO add your handling code here:
+        Edit edit = new Edit();
+        edit.setVisible(true);
+    }//GEN-LAST:event_dButton4ActionPerformed
+
+    private void dButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        JOptionPane.showMessageDialog(null,"You have delete successfully", "Announcement", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_dButton5ActionPerformed
        
     /**
      * @param args the command line arguments

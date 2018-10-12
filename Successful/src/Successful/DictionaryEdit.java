@@ -13,7 +13,7 @@ public class DictionaryEdit {
     Dictionary dic = new Dictionary();
     void Insert(){
        Scanner input = new Scanner(System.in);
-        System.out.println("Nhap tu can them : ");
+        System.out.println("Nhập từ cần thêm: ");
 	String Eng = input.nextLine();
         String Vie = input.nextLine();
         Word w = new Word(Eng,Vie);
@@ -31,7 +31,7 @@ public class DictionaryEdit {
         }
     }
     void Edit(){
-        System.out.println("từ cần sửa: ");
+        System.out.println("Nhập từ cần sửa: ");
         Scanner input = new Scanner(System.in);
         String find_word = input.nextLine();
         for(int i = 0; i<dic.word.size(); i++){

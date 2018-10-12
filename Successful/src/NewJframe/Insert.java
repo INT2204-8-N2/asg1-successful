@@ -5,15 +5,19 @@
  */
 package NewJframe;
 
+import javax.swing.JOptionPane;
+import jdk.nashorn.internal.scripts.JO;
+import NewJframe.DictionaryJframe;
+import Successful.Dictionary;
+import Successful.Word;
 /**
  *
  * @author dell
  */
 public class Insert extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Insert
-     */
+    Dictionary dic = new Dictionary();
+            
     public Insert() {
         initComponents();
     }
@@ -29,21 +33,19 @@ public class Insert extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         ITextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        ITextArea2 = new javax.swing.JTextArea();
         IButton1 = new javax.swing.JButton();
         IButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        ITextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Insert");
         setLocation(new java.awt.Point(450, 150));
 
         ITextArea1.setColumns(20);
         ITextArea1.setRows(5);
         jScrollPane1.setViewportView(ITextArea1);
-
-        ITextArea2.setColumns(20);
-        ITextArea2.setRows(5);
-        jScrollPane2.setViewportView(ITextArea2);
 
         IButton1.setText("Insert");
         IButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,53 +55,84 @@ public class Insert extends javax.swing.JFrame {
         });
 
         IButton2.setText("Exit");
+        IButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Insert English");
+
+        jLabel2.setText("Insert Vietnamese");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(201, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(IButton2)
                     .addComponent(IButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(189, 189, 189))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(ITextField1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IButton1, IButton2});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ITextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(IButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(IButton2)
-                .addGap(29, 29, 29))
+                .addGap(19, 19, 19))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {IButton1, IButton2});
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void IButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IButton1ActionPerformed
         // TODO add your handling code here:
+        String newE = ITextField1.getText();
+        String newV = ITextArea1.getText();
+        if(newE.isEmpty() || newV.isEmpty()){
+            JOptionPane.showMessageDialog(null,"You must fill in all the information !!!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            Word w = new Word();
+            w.word_target = newE;
+            w.word_explain = newV;
+            dic.word.add(w);
+            JOptionPane.showMessageDialog(null, "Conglaturation! You have update successfully  !!!", "Announcement",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_IButton1ActionPerformed
+
+    private void IButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_IButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,8 +173,9 @@ public class Insert extends javax.swing.JFrame {
     private javax.swing.JButton IButton1;
     private javax.swing.JButton IButton2;
     private javax.swing.JTextArea ITextArea1;
-    private javax.swing.JTextArea ITextArea2;
+    private javax.swing.JTextField ITextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

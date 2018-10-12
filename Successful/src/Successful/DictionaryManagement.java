@@ -53,7 +53,7 @@ public class DictionaryManagement {
         }
     public String dictionaryLookup(String find_word){
 
-        String result = "Không có từ để hiển thị !!!";
+        String result = "Không có từ để hiển thị !!!";
         for(int i=0; i<dic.word.size(); i++){
             if(dic.word.get(i).GetWord_target().equals(find_word))
                 result = dic.word.get(i).GetWord_explain();
