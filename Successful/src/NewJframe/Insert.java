@@ -10,6 +10,12 @@ import jdk.nashorn.internal.scripts.JO;
 import NewJframe.DictionaryJframe;
 import Successful.Dictionary;
 import Successful.Word;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import NewJframe.DictionaryJframe;
 /**
  *
  * @author dell
@@ -125,6 +131,8 @@ public class Insert extends javax.swing.JFrame {
             w.word_target = newE;
             w.word_explain = newV;
             dic.word.add(w);
+            
+            
             JOptionPane.showMessageDialog(null, "Conglaturation! You have update successfully  !!!", "Announcement",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_IButton1ActionPerformed

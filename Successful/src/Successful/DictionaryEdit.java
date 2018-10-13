@@ -21,9 +21,9 @@ public class DictionaryEdit {
     
     }
     
-    void Delete(){
-        Scanner input = new Scanner(System.in);
-        String find_word = input.nextLine();
+    void Delete(String find_word){
+//        Scanner input = new Scanner(System.in);
+//        String find_word = input.nextLine();
         for(int i = 0; i<dic.word.size(); i++){
             if(dic.word.get(i).GetWord_target().equals(find_word)){
                 dic.word.remove(dic.word.get(i));
@@ -36,6 +36,7 @@ public class DictionaryEdit {
         String find_word = input.nextLine();
         for(int i = 0; i<dic.word.size(); i++){
             if(dic.word.get(i).GetWord_target().equals(find_word)){
+             
                 System.out.println("new word target: ");
                 dic.word.get(i).word_target=input.nextLine();
                 System.out.println("new word explain: ");

@@ -11,6 +11,7 @@ import Successful.Dictionary;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -23,7 +24,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
     
     private DefaultListModel model = new DefaultListModel();
     Dictionary dic = new Dictionary();
-   
+    Word w = new Word();
     
     public DictionaryJframe() {
         initComponents();
@@ -31,7 +32,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         
     }
     void insertFromFile(){
-
+        
         File file = new File("dictionaries.txt");
        
         try {
@@ -187,6 +188,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
         // TODO add your handling code here:
         DictionaryManagement dm = new DictionaryManagement();
+        w.word_target = dList.getSelectedValue();
         dTextArea.setText(dm.dictionaryLookup(dList.getSelectedValue()));
     }//GEN-LAST:event_dListValueChanged
 
@@ -197,7 +199,16 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private void dTextFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dTextFieldCaretUpdate
        String s = dTextField.getText();
        model = new DefaultListModel();
-        if(!s.isEmpty())
+       
+       if(s.isEmpty()){
+         model = new DefaultListModel();
+         for(int i=0;i<dic.word.size();i++){
+         model.addElement(dic.word.get(i).word_target);
+         }
+        dList.setModel(model);
+        }
+       
+        else
         {
          model.clear();
          for(int i=0;i<dic.word.size();i++){
@@ -207,7 +218,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dList.setModel(model);
         
     }   
-    
+        
     }//GEN-LAST:event_dTextFieldCaretUpdate
 
     private void dButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton3ActionPerformed
@@ -218,17 +229,28 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
     private void dButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton4ActionPerformed
         // TODO add your handling code here:
+        
         Edit edit = new Edit();
+        edit.setWord(w);
         edit.setVisible(true);
     }//GEN-LAST:event_dButton4ActionPerformed
 
     private void dButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton5ActionPerformed
         // TODO add your handling code here:
-        
-        
+//        String value = dTextField.getText();
+//        if(value.isEmpty()){
+//            JOptionPane.showMessageDialog(null,"You must fill in all the information !!!", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else{
+        for(int i = 0; i<dic.word.size(); i++){
+            if(dic.word.get(i).GetWord_target().equals(w.word_target)){
+                dic.word.remove(dic.word.get(i));
         JOptionPane.showMessageDialog(null,"You have delete successfully", "Announcement", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        
+            
     }//GEN-LAST:event_dButton5ActionPerformed
-       
+     
     /**
      * @param args the command line arguments
      */
