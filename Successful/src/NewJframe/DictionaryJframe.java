@@ -16,6 +16,8 @@ import java.io.IOException;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import Successful.DictionaryManagement;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 /**
  *
  * @author dell
@@ -25,6 +27,8 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private DefaultListModel model = new DefaultListModel();
     Dictionary dic = new Dictionary();
     Word w = new Word();
+    VoiceManager VM;
+    Voice V;
     
     public DictionaryJframe() {
         initComponents();
@@ -138,6 +142,11 @@ public class DictionaryJframe extends javax.swing.JFrame {
         getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 300, 56));
 
         dButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Sound.png"))); // NOI18N
+        dButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                dButton2MouseReleased(evt);
+            }
+        });
         getContentPane().add(dButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 40, 35));
 
         dButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Insert.png"))); // NOI18N
@@ -254,6 +263,20 @@ public class DictionaryJframe extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_dButton5ActionPerformed
+
+    private void dButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dButton2MouseReleased
+        // TODO add your handling code here:      
+       
+       System.setProperty("mbrola.base", "mbrola");
+       
+       VM = VoiceManager.getInstance();
+       
+       V = VM.getVoice("mbrola_us1");
+       
+       V.allocate();
+       
+       V.speak(w.word_target);
+    }//GEN-LAST:event_dButton2MouseReleased
      
     /**
      * @param args the command line arguments
