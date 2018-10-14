@@ -52,7 +52,7 @@
     <Component class="javax.swing.JButton" name="dButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\dell\Documents\NetBeansProjects\asg1-successful\Successful\src\Image\Search.png"/>
+          <Image iconType="3" name="/Image/Search.png"/>
         </Property>
       </Properties>
       <Events>
@@ -142,7 +142,7 @@
     <Component class="javax.swing.JButton" name="dButton2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\dell\Documents\NetBeansProjects\asg1-successful\Successful\src\Image\Sound.png"/>
+          <Image iconType="3" name="/Image/Sound.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -154,7 +154,7 @@
     <Component class="javax.swing.JButton" name="dButton3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\dell\Documents\NetBeansProjects\asg1-successful\Successful\src\Image\Insert.png"/>
+          <Image iconType="3" name="/Image/Insert.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="add"/>
       </Properties>
@@ -170,7 +170,7 @@
     <Component class="javax.swing.JButton" name="dButton4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\dell\Documents\NetBeansProjects\asg1-successful\Successful\src\Image\Edit.png"/>
+          <Image iconType="3" name="/Image/Edit.png"/>
         </Property>
       </Properties>
       <Events>
@@ -185,7 +185,7 @@
     <Component class="javax.swing.JButton" name="dButton5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\dell\Documents\NetBeansProjects\asg1-successful\Successful\src\Image\Delete.png"/>
+          <Image iconType="3" name="/Image/Delete.png"/>
         </Property>
       </Properties>
       <Events>
@@ -201,9 +201,6 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="ff" red="99" type="rgb"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\dell\Documents\NetBeansProjects\asg1-successful\Successful\src\Image\hello1.jpg"/>
         </Property>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>

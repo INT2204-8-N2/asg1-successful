@@ -103,7 +103,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         });
         getContentPane().add(dTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 57, 154, 43));
 
-        dButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\dell\\Documents\\NetBeansProjects\\asg1-successful\\Successful\\src\\Image\\Search.png")); // NOI18N
+        dButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Search.png"))); // NOI18N
         dButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dButton1ActionPerformed(evt);
@@ -137,10 +137,10 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dLabel.setText("ENGLISH - VIETNAMESE");
         getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 290, 56));
 
-        dButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\dell\\Documents\\NetBeansProjects\\asg1-successful\\Successful\\src\\Image\\Sound.png")); // NOI18N
+        dButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Sound.png"))); // NOI18N
         getContentPane().add(dButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 40, 35));
 
-        dButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\dell\\Documents\\NetBeansProjects\\asg1-successful\\Successful\\src\\Image\\Insert.png")); // NOI18N
+        dButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Insert.png"))); // NOI18N
         dButton3.setActionCommand("add");
         dButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +149,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         });
         getContentPane().add(dButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 40, 35));
 
-        dButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\dell\\Documents\\NetBeansProjects\\asg1-successful\\Successful\\src\\Image\\Edit.png")); // NOI18N
+        dButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Edit.png"))); // NOI18N
         dButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dButton4ActionPerformed(evt);
@@ -157,7 +157,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         });
         getContentPane().add(dButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 40, 35));
 
-        dButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\dell\\Documents\\NetBeansProjects\\asg1-successful\\Successful\\src\\Image\\Delete.png")); // NOI18N
+        dButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Delete.png"))); // NOI18N
         dButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dButton5ActionPerformed(evt);
@@ -166,7 +166,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
         getContentPane().add(dButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 40, 35));
 
         jLabel1.setBackground(new java.awt.Color(153, 255, 153));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\dell\\Documents\\NetBeansProjects\\asg1-successful\\Successful\\src\\Image\\hello1.jpg")); // NOI18N
         jLabel1.setOpaque(true);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
 
