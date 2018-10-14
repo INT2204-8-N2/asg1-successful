@@ -166,6 +166,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         getContentPane().add(dButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 40, 35));
 
         jLabel1.setBackground(new java.awt.Color(153, 255, 153));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hello1.jpg"))); // NOI18N
         jLabel1.setOpaque(true);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
 
