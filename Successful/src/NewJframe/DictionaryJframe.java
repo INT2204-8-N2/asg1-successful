@@ -135,7 +135,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dLabel.setForeground(new java.awt.Color(51, 255, 51));
         dLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dLabel.setText("ENGLISH - VIETNAMESE");
-        getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 290, 56));
+        getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 300, 56));
 
         dButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Sound.png"))); // NOI18N
         getContentPane().add(dButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 40, 35));
@@ -242,16 +242,16 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private void dButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton5ActionPerformed
         // TODO add your handling code here:
 //        String value = dTextField.getText();
-//        if(value.isEmpty()){
-//            JOptionPane.showMessageDialog(null,"You must fill in all the information !!!", "Error", JOptionPane.ERROR_MESSAGE);
-//        } else{
+       if(dList.isSelectionEmpty()){
+            JOptionPane.showMessageDialog(null,"You must fill in all the information !!!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else{
         for(int i = 0; i<dic.word.size(); i++){
             if(dic.word.get(i).GetWord_target().equals(w.word_target)){
                 dic.word.remove(dic.word.get(i));
         JOptionPane.showMessageDialog(null,"You have delete successfully", "Announcement", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        
+        }
             
     }//GEN-LAST:event_dButton5ActionPerformed
      
