@@ -266,16 +266,15 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
     private void dButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dButton2MouseReleased
         // TODO add your handling code here:      
-       
-       System.setProperty("mbrola.base", "mbrola");
-       
-       VM = VoiceManager.getInstance();
-       
-       V = VM.getVoice("mbrola_us1");
-       
-       V.allocate();
-       
+       if(dList.isSelectionEmpty()){
+           JOptionPane.showMessageDialog(null,"You must fill in all the information !!!", "Error", JOptionPane.ERROR_MESSAGE);
+       }else{
+       System.setProperty("mbrola.base", "mbrola");      
+       VM = VoiceManager.getInstance();     
+       V = VM.getVoice("mbrola_us1");    
+       V.allocate();   
        V.speak(w.word_target);
+       }
     }//GEN-LAST:event_dButton2MouseReleased
      
     /**
