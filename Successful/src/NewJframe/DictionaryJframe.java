@@ -37,7 +37,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
     }
     void insertFromFile(){
         
-        File file = new File("dictionaries.txt");
+        File file = new File("E_V.txt");
        
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -46,8 +46,8 @@ public class DictionaryJframe extends javax.swing.JFrame {
             String line = "";
             for (i = 0; (line = br.readLine()) != null; i++) {
                 Word w = new Word();
-                String[] a = line.split("\\s", 2);
-                w.word_explain = a[1];
+                String[] a = line.split("\\<", 2);
+                w.word_explain = "<"+a[1];
                 w.word_target = a[0];
                 dic.word.add(w);
             }
@@ -56,6 +56,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
             e.printStackTrace();
         }
         }
+    @SuppressWarnings("unchecked")
    private void initData(){
          insertFromFile();
          model = new DefaultListModel();
@@ -72,8 +73,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
         dTextField = new javax.swing.JTextField();
         dButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        dTextArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         dList = new javax.swing.JList<>();
         dLabel = new javax.swing.JLabel();
@@ -81,12 +80,15 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dButton3 = new javax.swing.JButton();
         dButton4 = new javax.swing.JButton();
         dButton5 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        dLabel2 = new javax.swing.JLabel();
+        dLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dictionary");
-        setBackground(new java.awt.Color(51, 255, 51));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocation(new java.awt.Point(400, 120));
+        setPreferredSize(new java.awt.Dimension(750, 530));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dTextField.setBackground(new java.awt.Color(204, 204, 255));
@@ -104,6 +106,9 @@ public class DictionaryJframe extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 dTextFieldKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dTextFieldKeyReleased(evt);
+            }
         });
         getContentPane().add(dTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 57, 154, 43));
 
@@ -115,15 +120,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         });
         getContentPane().add(dButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 57, -1, 43));
 
-        dTextArea.setEditable(false);
-        dTextArea.setBackground(new java.awt.Color(204, 204, 204));
-        dTextArea.setColumns(20);
-        dTextArea.setRows(5);
-        jScrollPane1.setViewportView(dTextArea);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 118, 380, 352));
-
-        dList.setBackground(new java.awt.Color(204, 204, 204));
+        dList.setBackground(new java.awt.Color(153, 153, 153));
         dList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         dList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -135,11 +132,11 @@ public class DictionaryJframe extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 118, 154, 352));
 
         dLabel.setBackground(new java.awt.Color(255, 255, 255));
-        dLabel.setFont(new java.awt.Font("Arial Black", 3, 20)); // NOI18N
+        dLabel.setFont(new java.awt.Font("Arial Black", 3, 22)); // NOI18N
         dLabel.setForeground(new java.awt.Color(51, 255, 51));
         dLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dLabel.setText("ENGLISH - VIETNAMESE");
-        getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 300, 56));
+        getContentPane().add(dLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 340, 56));
 
         dButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Sound.png"))); // NOI18N
         dButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,10 +171,16 @@ public class DictionaryJframe extends javax.swing.JFrame {
         });
         getContentPane().add(dButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 40, 35));
 
-        jLabel1.setBackground(new java.awt.Color(153, 255, 153));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hello1.jpg"))); // NOI18N
-        jLabel1.setOpaque(true);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
+        dLabel2.setBackground(new java.awt.Color(153, 153, 153));
+        dLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        dLabel2.setOpaque(true);
+        jScrollPane1.setViewportView(dLabel2);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 430, 350));
+
+        dLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hello1.jpg"))); // NOI18N
+        dLabel1.setOpaque(true);
+        getContentPane().add(dLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,7 +191,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
          String value = dTextField.getText();
         DictionaryManagement dm = new DictionaryManagement();
         
-        dTextArea.setText(dm.dictionaryLookup(value));
+        dLabel2.setText(dm.dictionaryLookup(value));
         
         
     }//GEN-LAST:event_dButton1ActionPerformed
@@ -201,14 +204,15 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
         // TODO add your handling code here:
         DictionaryManagement dm = new DictionaryManagement();
+        dLabel2.setText(dm.dictionaryLookup(dList.getSelectedValue()));
+        
         w.word_target = dList.getSelectedValue();
-        dTextArea.setText(dm.dictionaryLookup(dList.getSelectedValue()));
     }//GEN-LAST:event_dListValueChanged
 
     private void dTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextFieldKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_dTextFieldKeyPressed
-
+    @SuppressWarnings("unchecked")
     private void dTextFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dTextFieldCaretUpdate
        String s = dTextField.getText();
        model = new DefaultListModel();
@@ -276,6 +280,32 @@ public class DictionaryJframe extends javax.swing.JFrame {
        V.speak(w.word_target);
        }
     }//GEN-LAST:event_dButton2MouseReleased
+    @SuppressWarnings("unchecked")
+    private void dTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextFieldKeyReleased
+        // TODO add your handling code here:
+//         String s = dTextField.getText();
+//       model = new DefaultListModel();
+//       
+//       if(s.isEmpty()){
+//         model = new DefaultListModel();
+//         for(int i=0;i<dic.word.size();i++){
+//         model.addElement(dic.word.get(i).word_target);
+//         }
+//        dList.setModel(model);
+//        }
+//       
+//        else
+//        {
+//         model.clear();
+//         for(int i=0;i<dic.word.size();i++){
+//            if(dic.word.get(i).GetWord_target().startsWith(s))
+//             model.addElement(dic.word.get(i).GetWord_target());
+//         }
+//        dList.setModel(model);
+//        
+//    }   
+//        
+    }//GEN-LAST:event_dTextFieldKeyReleased
      
     /**
      * @param args the command line arguments
@@ -319,10 +349,10 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private javax.swing.JButton dButton4;
     private javax.swing.JButton dButton5;
     private javax.swing.JLabel dLabel;
+    private javax.swing.JLabel dLabel1;
+    private javax.swing.JLabel dLabel2;
     private javax.swing.JList<String> dList;
-    private javax.swing.JTextArea dTextArea;
     private javax.swing.JTextField dTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
