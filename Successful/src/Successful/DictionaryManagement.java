@@ -7,6 +7,7 @@ package Successful;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -68,6 +69,23 @@ public class DictionaryManagement {
         for(int i=0;i<dic.word.size();i++){
             if(dic.word.get(i).GetWord_target().startsWith(s))
                 System.out.println(dic.word.get(i).GetWord_target()+"~~"+dic.word.get(i).GetWord_explain());
+        }
+    }
+    void dictionaryExportToFile(String filename){
+        try {
+            
+            File f = new File(filename);
+            FileWriter fw = new FileWriter(f);
+            
+            fw.write("\r\n");
+            for(int i=0;i<dic.word.size();i++)
+            {
+                fw.write(dic.word.get(i).word_target+"<"+dic.word.get(i).word_explain + "");
+            }
+           
+            fw.close();
+        } catch (IOException ex) {
+            System.out.println("Can't write to file " + ex);
         }
     }
 }

@@ -35,9 +35,9 @@ public class DictionaryJframe extends javax.swing.JFrame {
         initData();
         
     }
-    void insertFromFile(){
+    void insertFromFile(String filename){
         
-        File file = new File("E_V.txt");
+        File file = new File(filename);
        
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -47,7 +47,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
             for (i = 0; (line = br.readLine()) != null; i++) {
                 Word w = new Word();
                 String[] a = line.split("\\<", 2);
-                w.word_explain = "<"+a[1];
+                w.word_explain = "<" + a[1];
                 w.word_target = a[0];
                 dic.word.add(w);
             }
@@ -58,7 +58,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
         }
     @SuppressWarnings("unchecked")
    private void initData(){
-         insertFromFile();
+         insertFromFile("E_V.txt");
          model = new DefaultListModel();
          for(int i=0;i<dic.word.size();i++){
          model.addElement(dic.word.get(i).word_target);
@@ -97,15 +97,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
                 dTextFieldCaretUpdate(evt);
             }
         });
-        dTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dTextFieldMouseClicked(evt);
-            }
-        });
         dTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dTextFieldKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 dTextFieldKeyReleased(evt);
             }
@@ -196,11 +188,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
         
     }//GEN-LAST:event_dButton1ActionPerformed
 
-    private void dTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dTextFieldMouseClicked
-        // TODO add your handling code here:
-       // dTextField.setText("");
-    }//GEN-LAST:event_dTextFieldMouseClicked
-
     private void dListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_dListValueChanged
         // TODO add your handling code here:
         DictionaryManagement dm = new DictionaryManagement();
@@ -208,10 +195,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
         
         w.word_target = dList.getSelectedValue();
     }//GEN-LAST:event_dListValueChanged
-
-    private void dTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextFieldKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dTextFieldKeyPressed
     @SuppressWarnings("unchecked")
     private void dTextFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dTextFieldCaretUpdate
        String s = dTextField.getText();
@@ -261,9 +244,27 @@ public class DictionaryJframe extends javax.swing.JFrame {
         for(int i = 0; i<dic.word.size(); i++){
             if(dic.word.get(i).GetWord_target().equals(w.word_target)){
                 dic.word.remove(dic.word.get(i));
-        JOptionPane.showMessageDialog(null,"You have delete successfully", "Announcement", JOptionPane.INFORMATION_MESSAGE);
             }
         }
+        try {
+            
+            File f = new File("E_V.txt");
+            FileWriter fw = new FileWriter(f);
+            
+            fw.write("\r\n");
+            for(int i=0;i<dic.word.size();i++)
+            {
+                fw.write(dic.word.get(i).word_target+"<html><i>"+dic.word.get(i).word_explain + "\r\n");
+            }
+           
+            fw.close();
+        } catch (IOException ex) {
+            System.out.println("Can't write to file " + ex);
+        }
+
+        JOptionPane.showMessageDialog(null,"You have delete successfully", "Announcement", JOptionPane.INFORMATION_MESSAGE);
+            
+        
         }
             
     }//GEN-LAST:event_dButton5ActionPerformed

@@ -7,6 +7,9 @@ package NewJframe;
 
 import Successful.Dictionary;
 import Successful.Word;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 
@@ -143,6 +146,22 @@ public class Edit extends javax.swing.JFrame {
                 dic.word.get(i).word_explain = editV;
             }
         }
+            try {
+            
+            File f = new File("E_V.txt");
+            FileWriter fw = new FileWriter(f);
+            
+            fw.write("\r\n");
+            for(int i=0;i<dic.word.size();i++)
+            {
+                fw.write(dic.word.get(i).word_target+"<html><i>"+dic.word.get(i).word_explain + "\r\n");
+            }
+           // chú ý khi sửa từ word_explain luôn phải có "<" đứng trước.
+            fw.close();
+        } catch (IOException ex) {
+            System.out.println("Can't write to file " + ex);
+        }
+
             JOptionPane.showMessageDialog(null, "Conglaturation! You have edit successfully  !!!", "Announcement",JOptionPane.INFORMATION_MESSAGE);
         
         }
