@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 import Successful.DictionaryManagement;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 /**
  *
  * @author Vũ Đức Dũng
@@ -40,7 +42,8 @@ public class DictionaryJframe extends javax.swing.JFrame {
         File file = new File(filename);
        
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+//            BufferedReader br = new BufferedReader(new FileReader(file));
+            BufferedReader br = new BufferedReader( new InputStreamReader(new FileInputStream(file), "UTF8"));
             br.readLine();
             int i = 0;
             String line = "";
