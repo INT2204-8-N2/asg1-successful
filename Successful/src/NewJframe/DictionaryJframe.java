@@ -82,7 +82,8 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         dLabel2 = new javax.swing.JLabel();
-        dLabel1 = new javax.swing.JLabel();
+        dButton6 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dictionary");
@@ -170,9 +171,16 @@ public class DictionaryJframe extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 430, 350));
 
-        dLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hello1.jpg"))); // NOI18N
-        dLabel1.setOpaque(true);
-        getContentPane().add(dLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
+        dButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Translate.png"))); // NOI18N
+        dButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(dButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 404, 40, 35));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hello1.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -307,6 +315,12 @@ public class DictionaryJframe extends javax.swing.JFrame {
 //    }   
 //        
     }//GEN-LAST:event_dTextFieldKeyReleased
+
+    private void dButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton6ActionPerformed
+        // TODO add your handling code here:
+        Translate translate = new Translate();
+        translate.setVisible(true);
+    }//GEN-LAST:event_dButton6ActionPerformed
      
     /**
      * @param args the command line arguments
@@ -349,11 +363,12 @@ public class DictionaryJframe extends javax.swing.JFrame {
     private javax.swing.JButton dButton3;
     private javax.swing.JButton dButton4;
     private javax.swing.JButton dButton5;
+    private javax.swing.JButton dButton6;
     private javax.swing.JLabel dLabel;
-    private javax.swing.JLabel dLabel1;
     private javax.swing.JLabel dLabel2;
     private javax.swing.JList<String> dList;
     private javax.swing.JTextField dTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

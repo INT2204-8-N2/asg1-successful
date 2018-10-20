@@ -46,10 +46,11 @@ public class Edit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit");
-        setLocation(new java.awt.Point(450, 150));
+        setLocation(new java.awt.Point(520, 220));
 
         jLabel1.setText("Edit English");
 
+        ETextField1.setBackground(new java.awt.Color(153, 153, 153));
         ETextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ETextField1ActionPerformed(evt);
@@ -58,6 +59,7 @@ public class Edit extends javax.swing.JFrame {
 
         jLabel2.setText("Edit Vietnamese");
 
+        ETextArea1.setBackground(new java.awt.Color(153, 153, 153));
         ETextArea1.setColumns(20);
         ETextArea1.setRows(5);
         jScrollPane1.setViewportView(ETextArea1);

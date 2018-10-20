@@ -47,8 +47,9 @@ public class Insert extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Insert");
-        setLocation(new java.awt.Point(450, 150));
+        setLocation(new java.awt.Point(520, 220));
 
+        ITextArea1.setBackground(new java.awt.Color(153, 153, 153));
         ITextArea1.setColumns(20);
         ITextArea1.setRows(5);
         jScrollPane1.setViewportView(ITextArea1);
@@ -68,6 +69,8 @@ public class Insert extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Insert English");
+
+        ITextField1.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel2.setText("Insert Vietnamese");
 
