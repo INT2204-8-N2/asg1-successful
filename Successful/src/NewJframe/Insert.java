@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 import NewJframe.DictionaryJframe;
 /**
  *
- * @author dell
+ * @author Vũ Đức Dũng
  */
 public class Insert extends javax.swing.JFrame {
 

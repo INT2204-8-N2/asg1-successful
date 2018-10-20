@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
- * @author dell
+ * @author Vũ Đức Dũng
  */
 public class Translate extends javax.swing.JFrame {
     VoiceManager VM;

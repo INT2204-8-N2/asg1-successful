@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dell
+ * @author Vũ Đức Dũng
  */
 public class Edit extends javax.swing.JFrame {
     Dictionary dic = new Dictionary();

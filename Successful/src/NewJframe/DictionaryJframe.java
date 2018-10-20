@@ -20,7 +20,7 @@ import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 /**
  *
- * @author dell
+ * @author Vũ Đức Dũng
  */
 public class DictionaryJframe extends javax.swing.JFrame {
     

@@ -10,7 +10,10 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
+/**
+ *
+ * @author Internet
+ */
 
 public final class GoogleTranslate { //Class marked as final since all methods are static
 	
