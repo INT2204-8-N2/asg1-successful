@@ -269,7 +269,7 @@ public class DictionaryJframe extends javax.swing.JFrame {
             fw.write("\r\n");
             for(int i=0;i<dic.word.size();i++)
             {
-                fw.write(dic.word.get(i).word_target+"<html><i>"+dic.word.get(i).word_explain + "\r\n");
+                fw.write(dic.word.get(i).word_target + dic.word.get(i).word_explain + "\r\n");
             }
            
             fw.close();
