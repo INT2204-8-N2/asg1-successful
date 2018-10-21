@@ -18,8 +18,11 @@ import javax.swing.JOptionPane;
 import Successful.DictionaryManagement;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 /**
  *
  * @author Vũ Đức Dũng
@@ -260,7 +263,8 @@ public class DictionaryJframe extends javax.swing.JFrame {
         try {
             
             File f = new File("E_V.txt");
-            FileWriter fw = new FileWriter(f);
+//            FileWriter fw = new FileWriter(f);
+            BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
             
             fw.write("\r\n");
             for(int i=0;i<dic.word.size();i++)

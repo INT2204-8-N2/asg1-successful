@@ -7,9 +7,12 @@ package NewJframe;
 
 import Successful.Dictionary;
 import Successful.Word;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import javax.swing.JOptionPane;
 
 
@@ -151,8 +154,8 @@ public class Edit extends javax.swing.JFrame {
             try {
             
             File f = new File("E_V.txt");
-            FileWriter fw = new FileWriter(f);
-            
+//            FileWriter fw = new FileWriter(f);
+            BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
             fw.write("\r\n");
             for(int i=0;i<dic.word.size();i++)
             {

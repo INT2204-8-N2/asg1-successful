@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import NewJframe.DictionaryJframe;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 /**
  *
  * @author Vũ Đức Dũng
@@ -138,8 +141,8 @@ public class Insert extends javax.swing.JFrame {
             try {
             
             File f = new File("E_V.txt");
-            FileWriter fw = new FileWriter(f);
-            
+//            FileWriter fw = new FileWriter(f);
+            BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(f), "UTF8"));
             fw.write("\r\n");
             for(int i=0;i<dic.word.size();i++)
             {
