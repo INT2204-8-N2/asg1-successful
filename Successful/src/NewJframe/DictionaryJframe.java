@@ -10,8 +10,6 @@ import Successful.Word;
 import Successful.Dictionary;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -102,11 +100,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
         dTextField.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 dTextFieldCaretUpdate(evt);
-            }
-        });
-        dTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                dTextFieldKeyReleased(evt);
             }
         });
         getContentPane().add(dTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 57, 154, 43));
@@ -296,32 +289,6 @@ public class DictionaryJframe extends javax.swing.JFrame {
        V.speak(w.word_target);
        }
     }//GEN-LAST:event_dButton2MouseReleased
-    @SuppressWarnings("unchecked")
-    private void dTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextFieldKeyReleased
-        // TODO add your handling code here:
-//         String s = dTextField.getText();
-//       model = new DefaultListModel();
-//       
-//       if(s.isEmpty()){
-//         model = new DefaultListModel();
-//         for(int i=0;i<dic.word.size();i++){
-//         model.addElement(dic.word.get(i).word_target);
-//         }
-//        dList.setModel(model);
-//        }
-//       
-//        else
-//        {
-//         model.clear();
-//         for(int i=0;i<dic.word.size();i++){
-//            if(dic.word.get(i).GetWord_target().startsWith(s))
-//             model.addElement(dic.word.get(i).GetWord_target());
-//         }
-//        dList.setModel(model);
-//        
-//    }   
-//        
-    }//GEN-LAST:event_dTextFieldKeyReleased
 
     private void dButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dButton6ActionPerformed
         // TODO add your handling code here:
